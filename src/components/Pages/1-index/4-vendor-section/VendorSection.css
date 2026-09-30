@@ -1,0 +1,138 @@
+/* VendorSection.css - Modern Vendor Profiles */
+
+.vendors-wrapper {
+  padding: 3rem 0;
+  position: relative;
+  z-index: 10;
+}
+
+/* بطاقة البائع */
+.vendor-card {
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.vendor-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(99, 102, 241, 0.15);
+}
+
+/* الكفر العلوي */
+.vendor-cover {
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(99, 102, 241, 0.4));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* الصورة الشخصية */
+.vendor-avatar-wrapper {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: -40px auto 10px; /* سحب الصورة للأعلى لتقطع الكفر */
+  z-index: 2;
+}
+
+.vendor-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #0f172a; /* لون مساوي لخلفية الموقع الداكنة */
+  background-color: #1e293b;
+  transition: transform 0.3s ease;
+}
+
+.vendor-card:hover .vendor-avatar {
+  transform: scale(1.05);
+}
+
+.verified-badge {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  color: #38bdf8;
+  background: #0f172a;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+/* نصوص وبودي البطاقة */
+.vendor-card-body {
+  padding: 0 1.25rem 1.25rem;
+  flex-grow: 1;
+}
+
+.vendor-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 0.25rem;
+  transition: color 0.2s ease;
+}
+
+.vendor-card:hover .vendor-name {
+  color: #818cf8;
+}
+
+.vendor-rating {
+  font-size: 0.85rem;
+  color: #fbbf24;
+}
+
+/* شارات التصنيفات (Categories) */
+.vendor-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+
+.category-pill {
+  background: rgba(56, 189, 248, 0.1);
+  color: #38bdf8;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+/* زر زيارة المتجر */
+.vendor-card-footer {
+  padding: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: auto;
+}
+
+.btn-visit-store {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.03);
+  color: #e2e8f0;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.6rem 0;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.btn-visit-store:hover {
+  background: linear-gradient(135deg, #38bdf8, #6366f1);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}

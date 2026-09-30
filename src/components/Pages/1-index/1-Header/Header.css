@@ -1,0 +1,138 @@
+/* Header.css - Ultra-Modern Dark Theme */
+
+/* شريط متدرج رفيع جداً في أعلى الشاشة لإعطاء روح للموقع */
+.header-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.header-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+  z-index: 1031;
+}
+
+/* نافبار زجاجي فاخر مع Blur */
+.custom-navbar {
+  background: rgba(15, 23, 42, 0.82) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.9rem 0;
+  transition: all 0.3s ease;
+}
+
+/* لوجو أنيق مع تأثير التوهج */
+.brand-logo {
+  font-size: 1.5rem;
+  letter-spacing: -0.5px;
+  color: #f8fafc !important;
+  transition: transform 0.25s ease;
+}
+
+.brand-logo:hover {
+  transform: scale(1.03);
+}
+
+.brand-accent {
+  background: linear-gradient(135deg, #38bdf8, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* روابط بتأثير الخط المنزلق المتوهج (Sliding Indicator) */
+.nav-link-custom {
+  position: relative;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #94a3b8 !important;
+  padding: 0.5rem 0.9rem !important;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-link-custom::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.7);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 4px;
+}
+
+.nav-link-custom:hover {
+  color: #f8fafc !important;
+  transform: translateY(-2px);
+}
+
+.nav-link-custom:hover::after {
+  width: 70%;
+  left: 15%;
+}
+
+/* زر الدخول العصري بتدرج وانعكاس ضوئي */
+.btn-modern-login {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: #ffffff !important;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 0.55rem 1.4rem;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.35);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* حركة انعكاس الضوء عند المرور */
+.btn-modern-login::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: skewX(-25deg);
+  transition: 0.6s ease;
+}
+
+.btn-modern-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(124, 58, 237, 0.45);
+}
+
+.btn-modern-login:hover::before {
+  left: 140%;
+}
+
+.btn-modern-login:active {
+  transform: scale(0.97);
+}
+
+/* زر القائمة للشاشات الصغيرة */
+.custom-toggler {
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  padding: 0.35rem 0.6rem;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.custom-toggler:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.custom-toggler:focus {
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.4);
+  outline: none;
+}
