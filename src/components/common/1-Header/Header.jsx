@@ -5,6 +5,7 @@ import './Header.css';
 const Header = () => {
   return (
     <header className="header-wrapper sticky-top">
+     
       <nav className="navbar navbar-expand-lg custom-navbar">
         <div className="container-fluid px-4 px-lg-5">
           <Link className="navbar-brand fw-bold brand-logo text-decoration-none" to="/">

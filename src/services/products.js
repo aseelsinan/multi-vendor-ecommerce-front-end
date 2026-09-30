@@ -56,3 +56,11 @@ export const topVendors = [
     categories: ['Cameras'] 
   },
 ];
+
+
+export const recentReviews = [
+  { id: 1, customer_name: 'Ahmed Ali', product_name: 'Pro Gaming Headset', rating: 5, reviews: 'Excellent quality and amazing sound. Highly recommended for gamers.', created_at: '2026-09-28' },
+  { id: 2, customer_name: 'Sarah Khaled', product_name: 'Smart Fitness Watch', rating: 4, reviews: 'Very good battery life, but the screen could be brighter under direct sunlight.', created_at: '2026-09-25' },
+  { id: 3, customer_name: 'Omar Said', product_name: 'Mechanical Keyboard', rating: 5, reviews: 'The tactile feedback is out of this world! Best purchase this year.', created_at: '2026-09-20' },
+  { id: 4, customer_name: 'Mona Youssef', product_name: 'Noise Canceling Headphones', rating: 5, reviews: 'Blocks out all the office noise perfectly. Worth every penny.', created_at: '2026-09-15' },
+];

@@ -1,0 +1,57 @@
+/* Footer.css - Minimalist Portfolio Version */
+
+.glass-footer {
+  background: rgba(9, 13, 22, 0.7);
+  backdrop-filter: blur(15px);
+  border-top: 1px solid rgba(56, 189, 248, 0.15);
+  padding: 3rem 0 1.5rem;
+  margin-top: 5rem;
+}
+
+.footer-brand {
+  color: #f8fafc;
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.footer-text {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 600px; /* لضمان عدم تمدد النص بشكل مزعج في الشاشات الكبيرة */
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  color: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-icon:hover {
+  background: #38bdf8;
+  color: #0f172a;
+  transform: translateY(-5px);
+  border-color: #38bdf8;
+  box-shadow: 0 5px 15px rgba(56, 189, 248, 0.3);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 1.5rem;
+  font-size: 0.85rem;
+}
