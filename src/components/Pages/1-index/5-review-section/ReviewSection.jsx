@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './ReviewSection.css';
 
 const ReviewSection = ({ title, subtitle, reviews }) => {
-  // دالة صغيرة لرسم النجوم بناءً على الرقم
+  const carouselRef = useRef(null);
+
+  // دالة تحريك الكاروسيل يميناً ويساراً
+  const handleScroll = (direction) => {
+    if (carouselRef.current) {
+      const scrollAmount = 380; // مقدار الإزاحة بالبكسل (عرض البطاقة + الفراغ)
+      carouselRef.current.scrollBy({
+        left: direction === 'next' ? scrollAmount : -scrollAmount,
+        behavior: 'smooth',
+      });
+    }
+  };
+
   const renderStars = (rating) => {
     const stars = [];
     for (let i = 1; i <= 5; i++) {
@@ -19,14 +31,34 @@ const ReviewSection = ({ title, subtitle, reviews }) => {
   return (
     <section className="reviews-wrapper">
       <div className="container">
-        {/* Section Header */}
-        <div className="text-center mb-5">
-          <h2 className="section-title mb-2">{title}</h2>
-          <p className="section-subtitle">{subtitle}</p>
+        {/* Section Header with Navigation Controls */}
+        <div className="d-flex flex-column flex-sm-row justify-content-between align-items-sm-end gap-3 mb-4">
+          <div>
+            <h2 className="section-title mb-1">{title}</h2>
+            <p className="section-subtitle mb-0">{subtitle}</p>
+          </div>
+          
+          {/* Navigation Buttons */}
+          <div className="carousel-nav-buttons d-flex gap-2">
+            <button 
+              className="carousel-nav-btn" 
+              onClick={() => handleScroll('prev')}
+              title="Previous Reviews"
+            >
+              <i className="fa-solid fa-arrow-left"></i>
+            </button>
+            <button 
+              className="carousel-nav-btn" 
+              onClick={() => handleScroll('next')}
+              title="Next Reviews"
+            >
+              <i className="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
         </div>
 
         {/* Horizontal Scroll Snap Container */}
-        <div className="reviews-carousel">
+        <div className="reviews-carousel" ref={carouselRef}>
           {reviews.map((review) => (
             <div key={review.id} className="review-card">
               <div className="review-header">

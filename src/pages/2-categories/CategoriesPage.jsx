@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../components/Pages/1-index/3-popular-categories/PopularCategories.css';
 
-// بيانات تحاكي جلب كل الأقسام من الباك إند
 const allCategories = [
   { id: 1, title: 'Electronics', icon: 'fa-solid fa-laptop', slug: 'electronics', items: '124' },
   { id: 2, title: 'Gaming', icon: 'fa-solid fa-gamepad', slug: 'gaming', items: '89' },
