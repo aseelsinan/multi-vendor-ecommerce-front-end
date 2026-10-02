@@ -1,6 +1,6 @@
 import React from 'react';
-import { useWishlist } from '../../../../services/WishlistContext'; // تأكد من المسار
-import {useCart} from '../../../../services/CartContext'; // تأكد من المسار
+import { useWishlist } from '../../../../../services/WishlistContext'; // تأكد من المسار
+import {useCart} from '../../../../../services/CartContext'; // تأكد من المسار
 const WishlistTab = () => {
   const { wishlistItems, removeFromWishlist } = useWishlist();
   const { addToCart } = useCart();

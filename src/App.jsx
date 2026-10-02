@@ -8,7 +8,7 @@ import ProductDetailPage from "./pages/4-product-detail/ProductDetailPage.jsx";
 import CheckoutPage from "./pages/5-checkout/CheckoutPage.jsx";
 import CartPage from "./pages/6-cart/CartPage.jsx";
 import AuthPage from "./pages/7-auth/AuthPage.jsx";
-import UserDashboardPage from "./pages/8-user-dashboard/UserDashboardPage.jsx";
+import DashboardPage from "./pages/8-dashboard-page/DashboardPage.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -61,7 +61,7 @@ const router = createBrowserRouter([
       },
     {
       path:'dashboard/',
-      element:<UserDashboardPage/>
+      element:<DashboardPage/>
     }
     ],
   },
