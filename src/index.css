@@ -29,6 +29,9 @@ html, body {
   flex-direction: column;
   background: transparent !important;
 }
+.text-muted {
+  color: #94a3b8 !important; /* لون رمادي فاتح مائل للزرقة ليناسب الخلفية */
+}
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {

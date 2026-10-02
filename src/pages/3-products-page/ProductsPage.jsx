@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import '../../components/Pages/1-index/2-productSection/ProductSection.css';
 import { dummyAllProducts } from '../../services/products';
+import { useCart } from '../../services/CartContext';
 
 const ProductsPage = () => {
+  const { addToCart } = useCart();
   const { category_slug } = useParams();
 
   // فلترة المنتجات إذا كان هناك slug لتصنيف محدد، وإلا عرض كافة المنتجات
@@ -117,7 +119,7 @@ const ProductsPage = () => {
                           <span>$</span>{product.price}
                         </div>
                         
-                        <button className="btn-add-cart" title="Add to Cart">
+                        <button className="btn-add-cart" title="Add to Cart" onClick={()=>addToCart(product)}>
                           <i className="fa-solid fa-cart-shopping"></i>
                         </button>
                       </div>

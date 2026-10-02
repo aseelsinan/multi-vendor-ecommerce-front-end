@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './ProductSection.css'; //[cite: 22]
+import './ProductSection.css';
+import { useCart } from '../../../../services/CartContext';
+
 
 const ProductSection = ({ title, subtitle, products }) => {
+  const { addToCart } = useCart(); // استخراج دالة الإضافة
+
   return (
     <section className="products-wrapper">
       <div className="container">
@@ -71,7 +75,12 @@ const ProductSection = ({ title, subtitle, products }) => {
                       <span>$</span>{product.price}
                     </div>
                     
-                    <button className="btn-add-cart" title="Add to Cart">
+                    {/* تفعيل زر الإضافة للسلة هنا */}
+                    <button 
+                      className="btn-add-cart" 
+                      title="Add to Cart"
+                      onClick={() => addToCart(product)}
+                    >
                       <i className="fa-solid fa-cart-shopping"></i>
                     </button>
                   </div>

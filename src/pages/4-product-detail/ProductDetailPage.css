@@ -201,3 +201,62 @@
   padding: 12px 8px;
   background: transparent !important;
 }
+
+/* أزرار السلايدر في الصورة الرئيسية */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f8fafc;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  opacity: 0; /* مخفية افتراضياً وتظهر عند تمرير الماوس */
+}
+
+.main-image-container:hover .slider-btn {
+  opacity: 1;
+}
+
+.slider-btn:hover {
+  background: #38bdf8;
+  color: #0f172a;
+  border-color: #38bdf8;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+}
+
+.slider-btn.prev-btn {
+  left: 15px;
+}
+
+.slider-btn.next-btn {
+  right: 15px;
+}
+
+/* تأثير الانتقال السلس للصور */
+.fade-in-image {
+  animation: imageFadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes imageFadeIn {
+  from {
+    opacity: 0.2;
+    transform: scale(0.98);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
