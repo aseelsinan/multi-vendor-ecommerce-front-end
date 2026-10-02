@@ -2,12 +2,18 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { dummyAllProducts } from "../../services/products";
 import "./ProductDetailPage.css";
+import { useWishlist } from "../../services/WishlistContext";
+import { useCart } from "../../services/CartContext";
 
 const ProductDetailPage = () => {
   const { slug } = useParams();
+  const { toggleWishlist, wishlistItems } = useWishlist();
+  const { addToCart } = useCart();
 
   const product =
     dummyAllProducts.find((p) => p.slug === slug) || dummyAllProducts[0];
+
+  const isWished = wishlistItems.some((item) => item.id === product.id);
 
   // معرض صور إضافية تجريبية
   const productGallery = [
@@ -30,7 +36,13 @@ const ProductDetailPage = () => {
     if (type === "dec" && quantity > 1) setQuantity((prev) => prev - 1);
   };
 
-  // دوال تحريك السلايدر (السابق والتالي)
+  const handleAddToCart = () => {
+    // إضافة المنتج بالكمية المختارة
+    for (let i = 0; i < quantity; i++) {
+      addToCart(product);
+    }
+  };
+
   const handlePrevImage = () => {
     const currentIndex = productGallery.indexOf(activeImage);
     const prevIndex =
@@ -48,7 +60,7 @@ const ProductDetailPage = () => {
   return (
     <div className="product-detail-wrapper py-5">
       <div className="container">
-        {/* مسار التنقل (Breadcrumbs) */}
+        {/* مسار التنقل */}
         <nav aria-label="breadcrumb" className="mb-4">
           <ol className="breadcrumb">
             <li className="breadcrumb-item">
@@ -78,12 +90,11 @@ const ProductDetailPage = () => {
           </ol>
         </nav>
 
-        {/* شبكة تفاصيل المنتج الرئيسية */}
+        {/* تفاصيل المنتج */}
         <div className="row g-5 mb-5">
-          {/* معرض الصور (Image Gallery) */}
+          {/* معرض الصور */}
           <div className="col-12 col-lg-6">
             <div className="main-image-container mb-3">
-              {/* أزرار السلايدر (تظهر فقط إذا كان هناك أكثر من صورة) */}
               {productGallery.length > 1 && (
                 <>
                   <button
@@ -113,7 +124,6 @@ const ProductDetailPage = () => {
               </span>
             </div>
 
-            {/* المصغرات */}
             {productGallery.length > 1 && (
               <div className="gallery-thumbs d-flex gap-3">
                 {productGallery.map((imgUrl, index) => (
@@ -129,12 +139,11 @@ const ProductDetailPage = () => {
             )}
           </div>
 
-          {/* تفاصيل المنتج وخيارات الشراء */}
+          {/* معلومات المنتج والخيارات */}
           <div className="col-12 col-lg-6 product-info-col">
             <div className="product-category-tag mb-2">{product.category}</div>
             <h1 className="product-title-detail mb-3">{product.title}</h1>
 
-            {/* التقييم */}
             <div className="d-flex align-items-center gap-3 mb-4">
               <div className="rating-stars text-warning">
                 <i className="fa-solid fa-star"></i>
@@ -150,7 +159,6 @@ const ProductDetailPage = () => {
               <span className="text-muted small">24 Customer Reviews</span>
             </div>
 
-            {/* السعر وحالة المخزون */}
             <div className="price-box mb-4">
               <span className="currency">$</span>
               <span className="amount">{product.price}</span>
@@ -160,13 +168,13 @@ const ProductDetailPage = () => {
             </div>
 
             <p className="product-short-desc text-muted mb-4">
-              Premium engineered audio device designed for unmatched acoustic
-              clarity, deep bass response, and seamless everyday comfort.
+              Premium engineered device designed for unmatched performance,
+              reliability, and seamless user comfort.
             </p>
 
             <hr className="border-secondary opacity-25 my-4" />
 
-            {/* محدد الكمية وأزرار الشراء */}
+            {/* التحكم بالكمية والأزرار */}
             <div className="purchase-controls d-flex flex-wrap gap-3 align-items-center mb-4">
               <div className="quantity-selector d-flex align-items-center">
                 <button
@@ -184,16 +192,25 @@ const ProductDetailPage = () => {
                 </button>
               </div>
 
-              <button className="btn btn-info px-4 py-3 rounded-pill fw-bold d-flex align-items-center gap-2 flex-grow-1 justify-content-center">
+              <button
+                className="btn btn-info px-4 py-3 rounded-pill fw-bold d-flex align-items-center gap-2 flex-grow-1 justify-content-center"
+                onClick={handleAddToCart}
+              >
                 <i className="fa-solid fa-cart-shopping"></i> Add to Cart
               </button>
 
-              <button className="btn-wishlist-action" title="Add to Wishlist">
-                <i className="fa-regular fa-heart"></i>
+              <button
+                className="btn-action-icon"
+                title="Wishlist"
+                onClick={() => toggleWishlist(product)}
+              >
+                <i
+                  className={`${isWished ? "fa-solid text-danger" : "fa-regular"} fa-heart`}
+                ></i>
               </button>
             </div>
 
-            {/* كرت البائع والضمان */}
+            {/* بطاقة البائع */}
             <div className="vendor-meta-card p-3 rounded-4 d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-center gap-3">
                 <div className="vendor-avatar">
@@ -216,7 +233,7 @@ const ProductDetailPage = () => {
           </div>
         </div>
 
-        {/* تبويبات المعلومات الإضافية والمراجعات */}
+        {/* التبويبات السفلية */}
         <div className="product-tabs-wrapper p-4 rounded-4 mt-5">
           <ul className="nav nav-pills custom-glass-tabs mb-4 gap-2">
             <li className="nav-item">
@@ -252,8 +269,7 @@ const ProductDetailPage = () => {
                 <p>
                   Experience premium build craftsmanship tailored for high
                   performance. Built with durable, lightweight materials and
-                  tuned for optimal efficiency. Perfect for everyday usage and
-                  demanding workloads.
+                  tuned for optimal efficiency.
                 </p>
               </div>
             )}
@@ -275,10 +291,6 @@ const ProductDetailPage = () => {
                       <td className="text-white">
                         12 Months Manufacturer Warranty
                       </td>
-                    </tr>
-                    <tr>
-                      <th className="text-secondary">Connectivity</th>
-                      <td className="text-white">Wireless / Bluetooth 5.3</td>
                     </tr>
                   </tbody>
                 </table>

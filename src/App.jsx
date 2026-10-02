@@ -7,6 +7,8 @@ import ProductsPage from "./pages/3-products-page/ProductsPage.jsx";
 import ProductDetailPage from "./pages/4-product-detail/ProductDetailPage.jsx";
 import CheckoutPage from "./pages/5-checkout/CheckoutPage.jsx";
 import CartPage from "./pages/6-cart/CartPage.jsx";
+import AuthPage from "./pages/7-auth/AuthPage.jsx";
+import UserDashboardPage from "./pages/8-user-dashboard/UserDashboardPage.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -48,7 +50,19 @@ const router = createBrowserRouter([
       {
         path: "cart/",
         element: <CartPage/>
-      }
+      },
+      {
+        path:'login/',
+        element:<AuthPage/>
+      },
+      {
+        path:'register/',
+        element:<AuthPage/>
+      },
+    {
+      path:'dashboard/',
+      element:<UserDashboardPage/>
+    }
     ],
   },
 ]);

@@ -13,7 +13,7 @@ const Header = () => {
       <nav className="navbar navbar-expand-lg custom-navbar">
         <div className="container-fluid px-4 px-lg-5">
           {/* الشعار */}
-          <h1>22</h1>
+          <h1>28</h1>
           <Link
             className="navbar-brand fw-bold brand-logo text-decoration-none"
             to="/"

@@ -1,0 +1,115 @@
+/* AuthPage.css */
+
+.auth-wrapper {
+  min-height: 80vh;
+  position: relative;
+  z-index: 5;
+}
+
+.bg-auth-card {
+  background: #111827; /* لون مقارب للخلفية لقص الخط الفاصل */
+}
+
+.glass-auth-card {
+  background: rgba(17, 24, 39, 0.6);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* أزرار التبديل (Tabs) */
+.auth-tabs {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.auth-tab-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-weight: 600;
+  padding: 10px 0;
+  transition: color 0.3s ease;
+}
+
+.auth-tab-btn.active {
+  color: #ffffff;
+}
+
+.tab-highlighter {
+  top: 4px;
+  bottom: 4px;
+  width: calc(50% - 4px);
+  background: rgba(56, 189, 248, 0.2);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tab-highlighter.left {
+  transform: translateX(4px);
+}
+
+.tab-highlighter.right {
+  transform: translateX(calc(100% + 4px));
+}
+
+/* حقول الإدخال */
+.input-group-glass {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  height: 50px;
+}
+
+.input-group-glass:focus-within {
+  background: rgba(15, 23, 42, 0.9);
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15);
+}
+
+.input-group-glass .form-control:focus {
+  outline: none;
+}
+
+.input-group-glass .form-control::placeholder {
+  color: #475569;
+}
+
+.input-group-glass i {
+  width: 20px;
+  text-align: center;
+}
+
+/* أزرار التواصل الاجتماعي */
+.btn-social-glass {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.btn-social-glass:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* تأثير ظهور العناصر (Animation) */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(15px);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

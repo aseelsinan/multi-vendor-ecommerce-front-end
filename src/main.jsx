@@ -5,12 +5,15 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './index.css'
 import App from './App.jsx'
 import { CartProvider } from './services/CartContext.jsx';
+import { WishlistProvider } from './services/WishlistContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <CartProvider>
+<WishlistProvider>
 
   <StrictMode>
     <App />
   </StrictMode>,
+</WishlistProvider>
   </CartProvider>
 )
